@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - организуйте свои задачи</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f5f7;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0052cc;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #172b4d;
+        }
+        .auth-buttons a {
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        .login {
+            color: #172b4d;
+        }
+        .signup {
+            background-color: #0052cc;
+            color: white;
+        }
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            padding: 60px;
+            background-color: white;
+        }
+        .text-content {
+            max-width: 500px;
+        }
+        .text-content h1 {
+            font-size: 32px;
+            color: #172b4d;
+        }
+        .text-content p {
+            font-size: 18px;
+            color: #42526e;
+        }
+        form {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        input[type="email"] {
+            padding: 10px;
+            border: 1px solid #dfe1e6;
+            border-radius: 5px;
+            width: 250px;
+        }
+        button {
+            background-color: #0052cc;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .watch-video {
+            display: inline-block;
+            margin-top: 15px;
+            color: #0052cc;
+            text-decoration: none;
+        }
+        .image-content img {
+            width: 300px;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            background-color: white;
+        }
+        .features .text-content {
+            max-width: 500px;
+            margin-right: 50px;
+        }
+        .features h2 {
+            font-size: 28px;
+            color: #172b4d;
+        }
+        .features p {
+            font-size: 16px;
+            color: #42526e;
+        }
+        .features .image-content img {
+            width: 500px;
+            border-radius: 10px;
+        }
+        .testimonial {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            background-color: white;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .testimonial-text {
+            max-width: 50%;
+        }
+        .testimonial-quote {
+            font-style: italic;
+            color: #172b4d;
+        }
+        .testimonial-author {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .testimonial-stats {
+            background-color: #0052cc;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 40%;
+        }
+        .testimonial-stats h2 {
+            font-size: 24px;
+        }
+
+        .footer {
+            background-color: #172b4d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+        .close {
+            cursor: pointer;
+            float: right;
+            font-size: 20px;
+        }
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .menu-buttons button {
+            padding: 10px;
+            border: none;
+            background-color: #0052cc;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Task Manager</div>
+        <nav>
+            <ul>
+                <li><a href="openModal">Функции</a></li>
+                <li><a href="#">Решения</a></li>
+                <li><a href="#">О нас</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="login">Войти</a>
+            <a href="#" class="signup">Регистрация</a>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="text-content">
+                <h1>Фиксируйте, организуйте и управляйте своими делами откуда угодно.</h1>
+                <p>Организуйте свои задачи вместе с Task Manager.</p>
+                <form>
+                    <input type="email" placeholder="Email">
+                    <button type="submit">Зарегистрироваться — это бесплатно!</button>
+                </form>
+                <a href="#" class="watch-video">Смотреть видео</a>
+            </div>
+            <div class="image-content">
+                <img src="phone-image.png" alt="">
+            </div>
+        </section>
+        <section class="features">
+            <div class="text-content">
+                <h2>Ваш инструмент продуктивности</h2>
+                <p>Будьте организованными и эффективными с Task Manager: Входящие, Доски и Планировщик помогут вам управлять задачами и идеями.</p>
+                <h3>Входящие</h3>
+                <p>Организовывайте свои идеи в любое время и в любом месте.</p>
+                <h3>Доски</h3>
+                <p>Управляйте своими задачами от : "какие задачи выполнить?" до "срок выполнения".</p>
+                <h3>Планировщик</h3>
+                <p>Устанавливайте срок вашим задачам по календарю.</p>
+            </div>
+            <div class="image-content">
+                <img src="pics2.jpg" alt="Картинка 2">
+            </div>
+        </section>
+        <section class="testimonial">
+            <div class="testimonial-text">
+                <p class="testimonial-quote">"Task Manager отлично подходит для организации процессов и работы. Благодаря гибкому функционалу, Task Manager является очень удобным и понятным для любого пользователя"</p>
+            </div>
+            <div class="testimonial-stats">
+                <h2>Как показывает статистика, многие предприятия, которые организуют работу добиваются хороших результатов в кратчайшие сроки</h2>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 Task Manager. Все права защищены. <a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+    </footer>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Функции Task Manager</h2>
+            <p>Выберите нужную функцию:</p>
+            <div class="menu-buttons">
+                <button>Входящие</button>
+                <button>Планировщик</button>
+                <button>Автоматизация</button>
+                <button>Шаблоны</button>
+                <button>Интеграции</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("openModal").addEventListener("click", function() {
+            document.getElementById("modal").style.display = "flex";
+        });
+        document.querySelector(".close").addEventListener("click", function() {
+            document.getElementById("modal").style.display = "none";
+        });
+        window.addEventListener("click", function(event) {
+            if (event.target === document.getElementById("modal")) {
+                document.getElementById("modal").style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
